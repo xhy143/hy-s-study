@@ -1,26 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
-void strfine(string a,string b,int c){
-    int i=0;
-    bool flag=0;
-    while(i<=a.size()){
-        size_t a1=a.find(b,i);
-        if(a1==string::npos){
-            if(!flag){
-                cout<<-1;
-                return;
-            }else{
-                return;
-            }
-        }
-        flag=1;
-        cout<<a1+1<<' ';
-        i=a1+1;
+void strfine(string s,string sub){
+    size_t pos=s.find(sub);
+    if(pos==-1){
+        cout<<"-1"<<endl;
+        return;
+    }
+    while(pos!=-1){
+        cout<<pos+1<<endl;
+        pos=s.find(sub,pos+1);
     }
 }
 int main(){
     string s,sub;
     getline(cin,s);
 	getline(cin,sub); 
-    strfine(s,sub,0);
-}//tese is in https://zhuoyue.codechild.cn/p/1591
+    strfine(s,sub);
+}//tise is in https://zhuoyue.codechild.cn/p/1591
