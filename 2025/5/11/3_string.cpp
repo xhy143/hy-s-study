@@ -3,9 +3,17 @@ using namespace std;
 int ap(string s){
     char o;
     cin>>o;
-    for(int i=0;i<s.size();i++){
-        if(s[i]==o){
-            s.erase(i,1);
+    size_t p;
+    p=s.find(o);
+    if(p==string::npos){
+        cout<<s<<endl;
+        return 0;
+    }
+    while(p!=-1){
+        s.erase(p,1);
+        p=s.find(o);
+        if(p==string::npos){
+            break;
         }
     }
     cout<<s;
