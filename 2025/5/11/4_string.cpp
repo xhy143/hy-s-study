@@ -18,8 +18,8 @@ int ap(string s,string c,string o){
 }
 int main(){
     string s,c,o;
-    getline(cin,s);
-    getline(cin,o);
-    getline(cin,c);
+    cin>>s;
+    cin>>o;
+    cin>>c;
     ap(s,c,o);
 }//https://zhuoyue.codechild.cn/p/1570
