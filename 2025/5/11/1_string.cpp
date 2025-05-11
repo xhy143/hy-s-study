@@ -14,12 +14,13 @@ void strfine(string a,string b,int c){
             }
         }
         flag=1;
-        cout<<a1<<' ';
+        cout<<a1+1<<' ';
         i=a1+1;
     }
 }
 int main(){
     string s,sub;
-    cin >> s >> sub;
+    getline(cin,s);
+	getline(cin,sub); 
     strfine(s,sub,0);
 }//tese is in https://zhuoyue.codechild.cn/p/1591
