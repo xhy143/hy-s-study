@@ -1,8 +1,5 @@
-#include <iostream>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
-
 int main() {
     string s;
     cin >> s;
@@ -10,7 +7,6 @@ int main() {
     if (equal_pos == string::npos) {
         cout << "Impossible!" << endl;
         return 0;
-
     string left = s.substr(0, equal_pos);
     string right = s.substr(equal_pos + 1);
     long long r = stoll(right);
