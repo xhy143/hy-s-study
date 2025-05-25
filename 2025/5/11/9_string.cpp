@@ -50,6 +50,6 @@ int main() {
             return 0;
         }
     }
-    cout << "Impossible!" << endl;
+    cout << "Impossible!" << endl;s
     return 0;
 }
