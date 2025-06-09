@@ -9,7 +9,9 @@ int main(){
         cin>>p;
         a.insert(p);
     }
-    for(int i:a){
-        cout<<i<<' ';
+    cout<<a.size()<<endl;
+    set<int>::iterator it;
+    for(it=a.begin();it!=a.end();it++){
+        cout<<*it;
     }
 }
