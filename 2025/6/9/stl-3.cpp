@@ -12,6 +12,6 @@ int main(){
     cout<<a.size()<<endl;
     set<int>::iterator it;
     for(it=a.begin();it!=a.end();it++){
-        cout<<*it;
+        cout<<*it<<' ';
     }
 }
