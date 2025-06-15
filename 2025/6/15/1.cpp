@@ -11,6 +11,7 @@ int fun(int e){
 }
 int main(){
     int a;
-    cin>>a;
-    cout<<fun(a);
-}
+    while(cin>>a&&a>0){
+        cout<<fun(a)<<endl;
+    }
+}//
