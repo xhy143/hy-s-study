@@ -1,7 +1,10 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
+int n, m, ans = 0;
 string G[105];
-int dx[] = {1, 0, -1, 0,1,-1,1,-1},dy[] = {0, 1, 0, -1,1,-1,-1,1},n, m, ans = 0;
+int dx[] = {1, 0, -1, 0,1,-1,1,-1};
+int dy[] = {0, 1, 0, -1,1,-1,-1,1};
+
 void dfs(int x, int y) {
     G[x][y] = '.'; 
     for (int i = 0; i < 8; i++) {
@@ -11,6 +14,7 @@ void dfs(int x, int y) {
         }
     }
 }
+
 int main() {
     cin >> n >> m;
     for (int i = 0; i < n; i++) {
