@@ -6,7 +6,7 @@ void dfs(int x,int y){
     G[x][y]='.';
     for(int i=0;i<8;i++){
         int nx=x+dx[i],ny=y+dy[i];
-        if(nx<n & &nx>=0 && ny<m && ny>=0 && G[nx][ny]=='.'){
+        if(nx<n &&nx>=0 && ny<m && ny>=0 && G[nx][ny]=='W'){
             dfs(nx,ny);
         }
     }
@@ -20,7 +20,7 @@ int main(){
         for(int j=0;j<m;j++){
             if(G[i][j]=='W'){
                 ans++;
-                dfs(n,m);
+                dfs(i,j);
             }
         }
     }
