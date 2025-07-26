@@ -13,7 +13,7 @@ int main(){
     dp[0] = 0;
     dp[1] = x[1];
     for(int i = 2; i <= n; i++){
-        dp[i] = max(dp[i-1], dp[i-2]) + x[i];
+        dp[i] = min(dp[i-1], dp[i-2]) + x[i];
     }
     cout << dp[n] << endl;
 }
