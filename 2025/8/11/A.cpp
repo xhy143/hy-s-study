@@ -17,11 +17,14 @@ int main(){
             gb++;
         }else if(a=='B'&&gb!=0){
             kw.erase(gb-1,1);
+            gb--;
         }else if(a=='P'){
             string c;
             cin>>c;
             kw.insert(gb,c);
+            gb+=c.length();
         }
     }
     cout<<kw;
+    return 0;
 }
