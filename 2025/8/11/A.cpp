@@ -10,7 +10,7 @@ int main(){
     for(int i=0;i<n;i++){
         char a;
         cin>>a;
-        if(a=='L'&&gb!=0){
+        if(a=='l'&&gb!=0){
             gb--;
         }
         else if(a=='D'&&gb!=kw.length()){
