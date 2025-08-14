@@ -18,10 +18,10 @@ void dfs(int x, int y) {
 int main() {
     cin >> n >> m;
     for (int i = 0; i < n; i++) {
-        string row;
-        cin >> row;
+        string h;
+        cin >> h;
         for (int j = 0; j < m; j++) {
-            G[i][j] = row[j] - '0';
+            G[i][j] = h[j] - '0';
         }
     }
     for (int i = 0; i < n; i++) {

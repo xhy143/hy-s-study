@@ -29,10 +29,10 @@ int main(){
         }
     }
     stack<node>st;
-    int row=1;
+    int h=1;
     for(int i=1;i<=n;i++){
-        st.push({i,row});
-        row=path[i][row];
+        st.push({i,h});
+        h=path[i][h];
     }
     while(!st.empty()){
         node f=st.top();
