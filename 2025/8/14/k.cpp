@@ -2,18 +2,18 @@
 using namespace std;
 
 
-int dfs(int count, int sum, int start, int n, int k) {
+int dfs(int ans, int sum, int start, int n, int k) {
 
-    if (count == k) {
+    if (ans == k) {
         return (sum == n) ? 1 : 0;
     }
     
-    int r = k - count; 
+    int r = k - ans; 
     int max_i = (n - sum) / r; 
     int res = 0;
     
     for (int i = start; i <= max_i; ++i) {
-        res += dfs(count + 1, sum + i, i, n, k);
+        res += dfs(ans + 1, sum + i, i, n, k);
     }
     
     return res;
