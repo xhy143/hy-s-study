@@ -2,18 +2,21 @@
 using namespace std;
 
 int main() {
-    int n, V;
-    cin >> n >> V;
-    vector<int> v(n+1), w(n+1);
-    for(int i = 1; i <= n; i++) {
-        cin >> v[i] >> w[i];
+    int N, V;
+    cin >> N >> V;
+    
+    vector<int> w(N);
+    vector<long long> v(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> w[i] >> v[i];
     }
-    vector<int> dp(V+1, 0);
-    for(int i = 1; i <= n; i++) {
-        for(int j = V; j >= v[i]; j--) {
-            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+    vector<long long> dp(V + 1, 0);
+    for (int i = 0; i < N; ++i) {
+        for (int j = V; j >= w[i]; --j) {
+            dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
         }
     }
     cout << dp[V] << endl;
+    
     return 0;
 }
