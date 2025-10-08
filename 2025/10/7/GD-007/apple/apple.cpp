@@ -11,4 +11,5 @@ int main(){
         n=n-ceil(n/3.0);
     }
     cout<<ans1<<' '<<ans2;
+    return 0;
 }

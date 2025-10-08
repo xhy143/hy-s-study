@@ -41,4 +41,5 @@ int main(){
         oil=chu((a[lx.front()].qzv-a[q].qzv+1),d)-(a[lx.front()].qzv-a[q].qzv+1)/d;
     }
     cout<<ans;
+    return 0;
 }
