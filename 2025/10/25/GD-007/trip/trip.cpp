@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 int a[1000001];
+bool tmp(int a,int b){
+    return a>b;
+}
 int main(){
     freopen("trip.in","r",stdin);
     freopen("trip.out","w",stdout);
@@ -10,18 +13,19 @@ int main(){
         cin>>a[i];
     }
     int alice=0;
-    sort(a,a+t);
+    sort(a,a+t,tmp);
     for(int i=0;i<t;i++){
         if(alice<n){
             alice+=(a[i]-n+alice);
         }else{
-            alice=a[i];
+            alice=a[i]+n;
         }
         ans++;
         if(alice>m){
             break;
         }
     }
+    cout<<alice<<endl;
     if(alice>m){
         cout<<ans;
     }else{
