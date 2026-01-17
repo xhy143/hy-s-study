@@ -138,7 +138,8 @@ void show_title() {
     print_middle("神秘学号抽奖器", 50);
     print_middle("", 50);
     print_middle("班级学号范围：1-42号", 50);
-    //print_middle("所有学号机会均等", 50);
+    print_middle("所有学号机会均等(bushi)", 50);
+    print_middle("源码:github.com/xhy143/hy-s-study", 50);
     print_middle("", 50);
     print_bottom(50);
 }
@@ -271,7 +272,7 @@ int main() {
             
             print_frame(40);
             print_middle("感谢使用！", 40);
-            print_middle("祝同学们好运！", 40);
+            print_middle("祝童鞋们好运！", 40);
             print_bottom(40);
             
             this_thread::sleep_for(chrono::milliseconds(1500));
