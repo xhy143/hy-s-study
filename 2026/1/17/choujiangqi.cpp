@@ -82,13 +82,7 @@ void loading_animation(const string& message, int duration_ms = 500) {
     cout << endl;
 }
 
-void countdown_effect() {
-    for(int i = 3; i > 0; i--) {
-        cout << "\r" << i << "..." << flush;
-        this_thread::sleep_for(chrono::milliseconds(500));
-    }
-    cout << "\r开始！" << endl;
-}
+// 已移除倒计时函数 countdown_effect
 
 void flash_number_effect(int number, int flashes = 3) {
     for(int i = 0; i < flashes; i++) {
@@ -120,13 +114,14 @@ int chou() {
     
     loading_animation("抽奖中", 800);
     
-    countdown_effect();
+    // 已移除倒计时函数调用
     
     int r = get_random_student_id();
     
     flash_number_effect(r);
     
-    this_thread::sleep_for(chrono::milliseconds(800));
+    // 修改停留时间为0.5秒
+    this_thread::sleep_for(chrono::milliseconds(500));
     
     return r;
 }
