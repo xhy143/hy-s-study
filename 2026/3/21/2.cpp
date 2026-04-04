@@ -1,39 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long
-
-const int N = 15;
-ll f[N][2][N][2];
-int num[N];  
-ll dfs(int len, bool issmall, int sum, bool zero, int d)
-{
-    ll ret = 0;
-    if (len == 0) return sum;  
-    if (f[len][issmall][sum][zero] != -1) return f[len][issmall][sum][zero];  
-    for (int i = 0; i < 10; i ++){
-        if (!issmall && i > num[len]) break;
-        ret += dfs(len-1, issmall || (i<num[len]), sum+((!zero || i) && (i==d)), zero && (i == 0), d);
+int f[100001],v[100001],ans;
+int find(int x){ 
+    if(f[x]==x){
+        return x;
+    }else{
+        return f[x]=find(f[x]);
     }
-    f[len][issmall][sum][zero] = ret;
-    return ret;
 }
-
-ll solve(ll x, int d)
-{
-    int len = 0;
-    while (x){
-        num[++ len] = x%10;
-        x /= 10;
-    } 
-    memset(f, -1, sizeof f); 
-    return dfs(len, 0, 0, 1, d); 
+void hb(int x,int y){ 
+    int findx=find(x);
+    int findy=find(y);
+    if(findx==findy) return;
+    f[findy]=findx;
+    return;
 }
-
-int main()
-{
-    ll a, b; 
-    cin>>a>>b;
-    for (int i = 0; i < 10; i ++)
-        cout<< solve(b, i)-solve(a-1, i)<<' ';
-    return 0;
+int main(){
+    int n,m;
+    cin>>n>>m;
+    for(int i=1;i<=n;i++){
+        f[i]=i; 
+    }
+    for(int i=1;i<=m;i++){
+        int x,y;
+        cin>>x>>y;
+        hb(x,y);
+    }
+    for(int i=1;i<=n;i++){
+        int x=find(i);
+        if(!v[x]) ans++,v[x]=1; 
+    }
+    cout<<ans-1; 
+    return 0;  
 }
