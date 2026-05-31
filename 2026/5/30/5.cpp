@@ -1,65 +1,37 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-using ll = unsigned long long;
-ll phi(ll x)
-{
-    ll res = x;
-    for (ll p = 2; p * p <= x; p++)
-    {
-        if (x % p == 0)
-        {
-            res = res / p * (p - 1);
-            while (x % p == 0)
-                x /= p;
-        }
+using ll = long long;
+
+ll mod_pow(ll a, ll b, ll p) {
+    ll res = 1;
+    while (b) {
+        if (b & 1) res = (res * a) % p;
+        a = (a * a) % p;
+        b >>= 1;
     }
-    if (x > 1)
-        res = res / x * (x - 1);
     return res;
 }
-ll ans = 0;
-ll n;
-void dfs(ll d, int idx, const vector<pair<ll, int>> &factors)
-{
-    if (idx == factors.size())
-    {
-        ans += (n / d) * phi(d);
-        return;
-    }
-    ll p = factors[idx].first;
-    int cnt = factors[idx].second;
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T;
+    cin >> T;
+    while (T--) {
+        ll N, P;
+        cin >> N >> P;
 
-    ll pow_p = 1;
-    for (int e = 0; e <= cnt; e++)
-    {
-        dfs(d * pow_p, idx + 1, factors);
-        pow_p *= p;
-    }
-}
-int main()
-{
-    cin >> n;
-    vector<pair<ll, int>> factors;
-    ll temp = n;
-    for (ll p = 2; p * p <= temp; p++)
-    {
-        if (temp % p == 0)
-        {
-            int cnt = 0;
-            while (temp % p == 0)
-            {
-                temp /= p;
-                cnt++;
-            }
-            factors.push_back({p, cnt});
+        if (N >= P) {
+            cout << "0\n";
+            continue;
         }
+        ll prod = 1;
+        for (ll k = N + 1; k <= P - 1; ++k) {
+            prod = (prod * (k % P)) % P;
+        }
+        ll inv = mod_pow(prod, P - 2, P);
+        ll ans = (P - 1) * inv % P;   
+        cout << ans << '\n';
     }
-    if (temp > 1)
-    {
-        factors.push_back({temp,1});
-    }
-    ans = 0;
-    dfs(1, 0, factors);
-    cout << ans << endl;
+
     return 0;
 }
