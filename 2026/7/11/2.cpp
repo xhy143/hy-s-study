@@ -17,21 +17,28 @@ int find(int x){
     }
     return sum;
 }
+void _add(int l, int r, int x) {
+    add(l, x);
+    add(r + 1, -x);
+}
 signed main(){
     int q;
     cin>>n>>q;
     for(int i=0;i<n;i++){
         cin>>a[i];
-        add(i+1,a[i]);
+        add(i+1,a[i]-a[i-1]);
     }
     while(q--){
         int pos,x,y;
-        cin>>pos>>x>>y;
+        cin>>pos;
         if(pos==1){
-            add(x,y);
+            int l,y,v;
+            cin>>l>>y>>v;
+            _add(l,y,v);
         }
         else if(pos==2){
-            cout<<find(y)-find(x-1)<<endl;
+            cin>>y;
+            cout<<find(y)<<endl;
         }
     }
 }
