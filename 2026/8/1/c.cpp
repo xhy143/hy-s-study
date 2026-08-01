@@ -9,11 +9,12 @@ struct node{
 int n,ans=0,used[1001],t=0;
 vector<node> q;
 signed main(){
+    in out
     cin>>n;
     for(int i=1;i<=n;i++){
         int l,p1,p2,p3,p4;
         cin>>l>>p1>>p2>>p3>>p4;
         q.push_back({l,p1,p2,p3,p4,i});
     }
-    
+    int l=0,r=LLONG_MAX;
 }
