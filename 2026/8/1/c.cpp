@@ -9,12 +9,22 @@ struct node{
 int n,ans=0,used[1001],t=0;
 vector<node> q;
 signed main(){
-    in out
-    cin>>n;
-    for(int i=1;i<=n;i++){
-        int l,p1,p2,p3,p4;
-        cin>>l>>p1>>p2>>p3>>p4;
-        q.push_back({l,p1,p2,p3,p4,i});
+    string str;
+    cin>>str;
+    string str2=str;
+    reverse(str.begin(),str.end());
+    cout<<str2;
+    int j=1;
+    int l=str.size();
+    while(l-j>=0){
+        for(int i=0;i<str.size()-j;i++){
+            cout<<str[i];
+        }
+        j++;
+        for(int i=0;i<str.size()-j;i++){
+            cout<<str2[i];
+        }
+        j++;
+        if(j==l)break;
     }
-    int l=0,r=LLONG_MAX;
 }
